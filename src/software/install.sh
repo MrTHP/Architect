@@ -7,12 +7,14 @@ source src/cmd.sh
 
 # Declare associative arrays for each software category
 declare -A desktop_list
+declare -A communication_list
 declare -A system_list
 declare -A browser_list
 declare -A video_list
 declare -A picture_list
 declare -A gaming_list
 declare -A ai_list
+declare -A gnome_extensions_list
 
 # Will store the complete list of packages to install
 selected_packages=""
@@ -22,26 +24,38 @@ selected_packages=""
 # -----------------------------------------------------------------------------
 function set_software_list() {
     desktop_list=(
-        ["Discord"]="discord"
-        ["Telegram"]="telegram-desktop"
         ["Spotify"]="spotify"
         ["LibreOffice en"]="libreoffice-fresh"
         ["LibreOffice fr"]="libreoffice-fresh libreoffice-fresh-fr"
         ["OnlyOffice"]="onlyoffice-bin"
         ["Audacity"]="audacity"
         ["Kazam"]="kazam"
+        ["Github Desktop Client"]="github-desktop-bin"
         ["Visual Studio Code"]="visual-studio-code-bin"
         ["Visual Studio Code Open Source"]="code"
         ["Virtualbox"]="virtualbox virtualbox-host-dkms virtualbox-guest-iso"
         ["Virtmanager"]="virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat dmidecode libguestfs"
+        ["Gnome Boxes"]="gnome-boxes"
         ["CrossOver"]="crossover"
-        ["Element Matrix Client"]="element-desktop element-web"
         ["Proton VPN"]="proton-vpn-gtk-app"
+        ["Proton Pass"]="proton-pass-bin"
         ["QBitorrent"]="qbittorrent"
         ["Audacious"]="audacious"
-        ["FreeTUBE"]="freetube-bin"
-        ["Gnome Boxes"]="gnome-boxes"
-        ["Github Desktop Client"]="github-desktop-bin"
+        ["FreeTUBE"]="freetube-bin" 
+    )
+    gnome_extensions_list=(
+        ["Extension Manager"]="extension-manager"
+        ["Arc Menu"]="gnome-shell-extension-arc-menu"
+        ["Caffeine"]="gnome-shell-extension-caffeine"
+        ["Dash to Panel"]="gnome-shell-extension-dash-to-panel"
+        ["Desktop icons NG"]="gnome-shell-extension-desktop-icons-ng"
+        ["Vitals"]="gnome-shell-extension-vitals"
+        ["Weather o'clock"]="gnome-shell-extension-weather-oclock"
+    )   
+    communication_list=(
+        ["Discord"]="discord"
+        ["Telegram"]="telegram-desktop"
+        ["Element Matrix Client"]="element-desktop element-web"
         ["NeoChat Matrix client"]="neochat"
     )
 
@@ -75,6 +89,7 @@ function set_software_list() {
         ["VLC"]="vlc"
         ["MPV"]="mpv"
         ["Video Downloader"]="video-downloader"
+        ["GPU screen recorder for Linux"]="gpu-screenrecorder"
 
     )
 
@@ -161,7 +176,8 @@ function install_software() {
     select_and_install picture_list "$(eval_gettext "Image Editors")"
     select_and_install gaming_list "$(eval_gettext "Gaming Software")"
     select_and_install ai_list "$(eval_gettext "AI Software")"
-
+    select_and_install communication_list "$(eval_gettext "Communication Software")"
+    select_and_install gnome_extensions_list "$(eval_gettext "Gnome Extensions Software")"
     # Retrieve selected packages to install
     local -r packages="${selected_packages}"
     selected_packages=""
