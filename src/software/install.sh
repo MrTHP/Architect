@@ -39,6 +39,9 @@ function set_software_list() {
         ["QBitorrent"]="qbittorrent"
         ["Audacious"]="audacious"
         ["FreeTUBE"]="freetube-bin"
+        ["Gnome Boxes"]="gnome-boxes"
+        ["Pinokio AI"]="pinokio-bin"
+        ["Github Desktop Client"]="github-desktop-bin"
     )
 
     system_list=(
@@ -47,6 +50,7 @@ function set_software_list() {
         ["Arch Update"]="arch-update vim"
         ["Lact Linux GPU Configuration Tool"]="lact"
         ["Port Proton"]="portproton"
+        ["Octopi"]="octopi"
     )
 
     picture_list=(
