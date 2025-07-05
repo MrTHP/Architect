@@ -159,6 +159,7 @@ function install_software() {
     select_and_install video_list "$(eval_gettext "Video Software")"
     select_and_install picture_list "$(eval_gettext "Image Editors")"
     select_and_install gaming_list "$(eval_gettext "Gaming Software")"
+    select_and_install ai_list "$(eval_gettext "AI Software")"
 
     # Retrieve selected packages to install
     local -r packages="${selected_packages}"
