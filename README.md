@@ -1,7 +1,7 @@
 # 🚀 ARCHITECT SCRIPT
 
 [🇫🇷 Passer à la version française](#script-architect-fr)  
-[📚 Architect Wiki](https://github.com/Cardiacman13/Architect/wiki)
+
 
 A post-install script designed to set up a complete and ready-to-use **Arch Linux system** right after using `archinstall`. Optimized for **gamers**, this script provides modular configuration options, minimal bloat, and performance in mind.
 
@@ -37,7 +37,7 @@ A post-install script designed to set up a complete and ready-to-use **Arch Linu
 
 ```bash
 sudo pacman -S --needed git base-devel \
-  && git clone https://github.com/Cardiacman13/Architect.git ~/Architect \
+  && git clone https://github.com/MrTHP/Architect.git ~/Architect \
   && cd ~/Architect \
   && chmod +x ./architect.sh \
   && ./architect.sh
@@ -45,9 +45,9 @@ sudo pacman -S --needed git base-devel \
 
 At the end of the script, you can delete the ~/Architect folder.
 
-[🧠 Configure Arch the easy way - Architect Script by Cardiac](https://youtu.be/0MV3MxmO7ns?si=eOMc-e4wdSwv1Fbb)
 
-[![Configure Arch the easy way](https://img.youtube.com/vi/0MV3MxmO7ns/0.jpg)](https://youtu.be/0MV3MxmO7ns?si=eOMc-e4wdSwv1Fbb)
+
+
 
 ---
 
@@ -69,7 +69,9 @@ At the end of the script, you can delete the ~/Architect folder.
 ## 🔗 Resources
 
 - 📖 [ArchWiki](https://wiki.archlinux.org/)
-- [📚 Architect Wiki](https://github.com/Cardiacman13/Architect/wiki)
+[🧠 Architect Script by MrTHP](https://linktr.ee/mrthp)
+
+
 ---
 
 <a name="script-architect-fr"></a>
@@ -106,11 +108,6 @@ Un script post-installation pour **Arch Linux**, destiné à configurer rapideme
 
 ---
 
-## Le grand minimum à savoir pour utiliser Arch Linux : 
-
-[Arch Linux - les bonnes pratiques avec Antiz !](https://youtu.be/4CiGmS3UM3Y?si=FARbltfaw2oXVBpO)
-
-[![Arch Linux - les bonnes pratiques avec Antiz !](https://img.youtube.com/vi/4CiGmS3UM3Y/0.jpg)](https://youtu.be/4CiGmS3UM3Y?si=FARbltfaw2oXVBpO)
 
 ---
 
@@ -118,7 +115,7 @@ Un script post-installation pour **Arch Linux**, destiné à configurer rapideme
 
 ```bash
 sudo pacman -S --needed git base-devel \
-  && git clone https://github.com/Cardiacman13/Architect.git ~/Architect \
+  && git clone https://github.com/MrTHP/Architect.git ~/Architect \
   && cd ~/Architect \
   && chmod +x ./architect.sh \
   && ./architect.sh
@@ -146,7 +143,7 @@ sudo pacman -S --needed git base-devel \
 ## 🔗 Ressources
 
 - 📖 [ArchWiki](https://wiki.archlinux.org/)
-- [📚 Architect Wiki](https://github.com/Cardiacman13/Architect/wiki)
+[🧠 Architect Script by MrTHP](https://linktr.ee/mrthp)
 
 ---
 

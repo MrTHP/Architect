@@ -34,12 +34,19 @@ function set_software_list() {
         ["Virtualbox"]="virtualbox virtualbox-host-dkms virtualbox-guest-iso"
         ["Virtmanager"]="virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat dmidecode libguestfs"
         ["CrossOver"]="crossover"
+        ["Element Matrix Client"]="element-desktop element-web"
+        ["Proton VPN"]="proton-vpn-gtk-app"
+        ["QBitorrent"]="qbittorrent"
+        ["Audacious"]="audacious"
+        ["FreeTUBE"]="freetube-bin"
     )
 
     system_list=(
         ["Open RGB"]="openrgb i2c-tools"
         ["Open Razer"]="openrazer-daemon libnotify polychromatic"
         ["Arch Update"]="arch-update vim"
+        ["Lact Linux GPU Configuration Tool"]="lact"
+        ["Port Proton"]="portproton"
     )
 
     picture_list=(
@@ -47,6 +54,7 @@ function set_software_list() {
         ["Krita"]="krita"
         ["Inkscape"]="inkscape"
         ["Blender"]="blender"
+        ["Upscayl image upscaler"]="upscayl-bin"
     )
 
     video_list=(
@@ -54,16 +62,20 @@ function set_software_list() {
         ["OBS Studio"]="obs-studio"
         ["VLC"]="vlc"
         ["MPV"]="mpv"
+        ["Video Downloader"]="video-downloader"
+
     )
 
     browser_list=(
         ["Firefox en"]="firefox"
         ["Firefox fr"]="firefox firefox-i18n-fr"
         ["Brave"]="brave-bin"
+        ["Brave Beta"]="brave-beta-bin"
         ["Chromium"]="chromium"
         ["Vivaldi"]="vivaldi vivaldi-ffmpeg-codecs"
         ["Google Chrome"]="google-chrome"
         ["Microsoft Edge"]="microsoft-edge-stable-bin"
+        ["Zen Browser"]="zen-browser-bin"
     )
 
     gaming_list=(
@@ -74,6 +86,8 @@ function set_software_list() {
         ["ProtonUp QT"]="protonup-qt"
         ["Goverlay"]="goverlay lib32-mangohud"
         ["Gamemode"]="gamemode lib32-gamemode"
+        ["ProtonPlus"]="protonplus"
+        ["Proton GE"]="proton-ge-custon-bin"
     )
 }
 
