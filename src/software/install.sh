@@ -57,6 +57,9 @@ function set_software_list() {
         ["Telegram"]="telegram-desktop"
         ["Element Matrix Client"]="element-desktop element-web"
         ["NeoChat Matrix client"]="neochat"
+        ["Vesktop"]="vesktop-bin"
+        ["Webcord"]="webcord"
+        ["Vencord"]="vencord"
     )
 
     system_list=(
@@ -96,13 +99,17 @@ function set_software_list() {
     browser_list=(
         ["Firefox en"]="firefox"
         ["Firefox fr"]="firefox firefox-i18n-fr"
+        ["Firefox uBlock Origin"]="firefox-ublock-origin"
         ["Brave"]="brave-bin"
         ["Brave Beta"]="brave-beta-bin"
+        ["LibreWolf"]="librewolf-bin"
         ["Chromium"]="chromium"
+        ["uBlock Origin Extension"]="ublock-origin"
         ["Vivaldi"]="vivaldi vivaldi-ffmpeg-codecs"
         ["Google Chrome"]="google-chrome"
         ["Microsoft Edge"]="microsoft-edge-stable-bin"
         ["Zen Browser"]="zen-browser-bin"
+
     )
 
     gaming_list=(
