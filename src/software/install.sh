@@ -42,6 +42,7 @@ function set_software_list() {
         ["FreeTUBE"]="freetube-bin"
         ["Gnome Boxes"]="gnome-boxes"
         ["Github Desktop Client"]="github-desktop-bin"
+        ["NeoChat Matrix client"]="neochat"
     )
 
     system_list=(
