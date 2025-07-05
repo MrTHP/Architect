@@ -12,6 +12,7 @@ declare -A browser_list
 declare -A video_list
 declare -A picture_list
 declare -A gaming_list
+declare -A ai_list
 
 # Will store the complete list of packages to install
 selected_packages=""
@@ -40,7 +41,6 @@ function set_software_list() {
         ["Audacious"]="audacious"
         ["FreeTUBE"]="freetube-bin"
         ["Gnome Boxes"]="gnome-boxes"
-        ["Pinokio AI"]="pinokio-bin"
         ["Github Desktop Client"]="github-desktop-bin"
     )
 
@@ -51,8 +51,12 @@ function set_software_list() {
         ["Lact Linux GPU Configuration Tool"]="lact"
         ["Port Proton"]="portproton"
         ["Octopi"]="octopi"
+    )
+
+    ai_list=(
         ["Ollama AI Nvidia/cuda"]="ollama ollama-cuda ollama-docs"
         ["Ollama AI AMD/ATI"]="ollama ollama-rocm ollama-docs"
+        ["Pinokio AI"]="pinokio-bin"
     )
 
     picture_list=(
