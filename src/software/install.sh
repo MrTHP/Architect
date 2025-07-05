@@ -49,7 +49,6 @@ function set_software_list() {
         ["Open Razer"]="openrazer-daemon libnotify polychromatic"
         ["Arch Update"]="arch-update vim"
         ["Lact Linux GPU Configuration Tool"]="lact"
-        ["Port Proton"]="portproton"
         ["Octopi"]="octopi"
     )
 
@@ -100,6 +99,7 @@ function set_software_list() {
         ["Gamemode"]="gamemode lib32-gamemode"
         ["ProtonPlus"]="protonplus"
         ["Proton GE"]="proton-ge-custon-bin"
+        ["Port Proton launcher de jeux"]="portproton"
     )
 }
 
