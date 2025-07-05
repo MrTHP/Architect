@@ -15,6 +15,7 @@ declare -A picture_list
 declare -A gaming_list
 declare -A ai_list
 declare -A gnome_extensions_list
+declare -A audio_list
 
 # Will store the complete list of packages to install
 selected_packages=""
@@ -24,12 +25,9 @@ selected_packages=""
 # -----------------------------------------------------------------------------
 function set_software_list() {
     desktop_list=(
-        ["Spotify"]="spotify"
         ["LibreOffice en"]="libreoffice-fresh"
         ["LibreOffice fr"]="libreoffice-fresh libreoffice-fresh-fr"
         ["OnlyOffice"]="onlyoffice-bin"
-        ["Audacity"]="audacity"
-        ["Kazam"]="kazam"
         ["Github Desktop Client"]="github-desktop-bin"
         ["Visual Studio Code"]="visual-studio-code-bin"
         ["Visual Studio Code Open Source"]="code"
@@ -40,9 +38,14 @@ function set_software_list() {
         ["Proton VPN"]="proton-vpn-gtk-app"
         ["Proton Pass"]="proton-pass-bin"
         ["QBitorrent"]="qbittorrent"
+    )   
+    audio_list=(
         ["Audacious"]="audacious"
         ["FreeTUBE"]="freetube-bin"
         ["Strawberry Music Player"]="strawberry"
+        ["Spotify"]="spotify"
+        ["Audacity"]="audacity"
+
     )
     gnome_extensions_list=(
         ["Extension Manager"]="extension-manager"
@@ -94,7 +97,7 @@ function set_software_list() {
         ["MPV"]="mpv"
         ["Video Downloader"]="video-downloader"
         ["GPU screen recorder for Linux"]="gpu-screenrecorder"
-
+        ["Kazam"]="kazam"
     )
 
     browser_list=(
@@ -186,6 +189,7 @@ function install_software() {
     select_and_install ai_list "$(eval_gettext "AI Software")"
     select_and_install communication_list "$(eval_gettext "Communication Software")"
     select_and_install gnome_extensions_list "$(eval_gettext "Gnome Extensions Software")"
+    select_and_install audio_list "$(eval_gettext "Audio Software")"
     # Retrieve selected packages to install
     local -r packages="${selected_packages}"
     selected_packages=""
