@@ -127,6 +127,7 @@ function set_software_list() {
         ["ProtonPlus"]="protonplus"
         ["Proton GE"]="proton-ge-custon-bin"
         ["Port Proton launcher de jeux"]="portproton"
+        ["Bottles"]="bottles"
     )
 }
 
