@@ -41,7 +41,8 @@ function set_software_list() {
         ["Proton Pass"]="proton-pass-bin"
         ["QBitorrent"]="qbittorrent"
         ["Audacious"]="audacious"
-        ["FreeTUBE"]="freetube-bin" 
+        ["FreeTUBE"]="freetube-bin"
+        ["Strawberry Music Player"]="strawberry"
     )
     gnome_extensions_list=(
         ["Extension Manager"]="extension-manager"
