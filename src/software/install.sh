@@ -51,6 +51,8 @@ function set_software_list() {
         ["Lact Linux GPU Configuration Tool"]="lact"
         ["Port Proton"]="portproton"
         ["Octopi"]="octopi"
+        ["Ollama AI Nvidia/cuda"]="ollama ollama-cuda ollama-docs"
+        ["Ollama AI AMD/ATI"]="ollama ollama-rocm ollama-docs"
     )
 
     picture_list=(
@@ -62,6 +64,8 @@ function set_software_list() {
     )
 
     video_list=(
+        ["Davinci Resolve"]="davinci-resolve"
+        ["Davinci Resolve Studio"]="davinci-resolve-studio"
         ["Kdenlive"]="kdenlive"
         ["OBS Studio"]="obs-studio"
         ["VLC"]="vlc"
