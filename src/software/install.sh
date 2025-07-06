@@ -64,6 +64,7 @@ function set_software_list() {
         ["Vesktop"]="vesktop-bin"
         ["Webcord"]="webcord"
         ["Vencord"]="vencord"
+        ["GQRX SDR"]="gqrx rtl-sdr"
     )
 
     system_list=(
@@ -72,6 +73,7 @@ function set_software_list() {
         ["Arch Update"]="arch-update vim"
         ["Lact Linux GPU Configuration Tool"]="lact"
         ["Octopi"]="octopi"
+        ["Ventoy"]="ventoy-bin"
     )
 
     ai_list=(
@@ -110,10 +112,13 @@ function set_software_list() {
         ["Chromium"]="chromium"
         ["uBlock Origin Extension"]="ublock-origin"
         ["Vivaldi"]="vivaldi vivaldi-ffmpeg-codecs"
+        ["QuteBrowser"]="qutebrowser"
         ["Google Chrome"]="google-chrome"
         ["Microsoft Edge"]="microsoft-edge-stable-bin"
         ["Zen Browser"]="zen-browser-bin"
-
+        ["Floorp"="floorp-bin"
+        ["Waterfox"]="waterfox"
+        ["Midori Next Browser"]="midori-bin"
     )
 
     gaming_list=(
@@ -128,6 +133,7 @@ function set_software_list() {
         ["Proton GE"]="proton-ge-custon-bin"
         ["Port Proton launcher de jeux"]="portproton"
         ["Bottles"]="bottles"
+        ["Nintendo Switch Emulator Ryujinx"]="ryujinx"
     )
 }
 
