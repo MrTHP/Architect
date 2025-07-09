@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # =============================================================================
 # Software installation script with automatic configuration if needed
 # =============================================================================
@@ -5,142 +6,157 @@
 # Load shared functions
 source src/cmd.sh
 
-# Declare associative arrays for each software category
+# ---------------------------------------------------------------------------
+# Déclarations globales
+# ---------------------------------------------------------------------------
 declare -A desktop_list
-declare -A communication_list
 declare -A system_list
 declare -A browser_list
 declare -A video_list
 declare -A picture_list
 declare -A gaming_list
-declare -A ai_list
-declare -A gnome_extensions_list
 declare -A audio_list
+declare -A gnome_extensions_list
+declare -A ai_list
+declare -A communication_list      # ← nouveau
 
 # Will store the complete list of packages to install
 selected_packages=""
 
-# -----------------------------------------------------------------------------
-# Define software choices for each category
-# -----------------------------------------------------------------------------
-function set_software_list() {
+# ---------------------------------------------------------------------------
+# Définition des listes logicielles
+# ---------------------------------------------------------------------------
+
+set_software_list() {
+
+    # --- Bureautique & virtualisation --------------------------------------
     desktop_list=(
-        ["LibreOffice en"]="libreoffice-fresh"
-        ["LibreOffice fr"]="libreoffice-fresh libreoffice-fresh-fr"
+        ["LibreOffice (EN)"]="libreoffice-fresh"
+        ["LibreOffice (FR)"]="libreoffice-fresh libreoffice-fresh-fr"
         ["OnlyOffice"]="onlyoffice-bin"
-        ["Github Desktop Client"]="github-desktop-bin"
+        ["GitHub Desktop"]="github-desktop-bin"
         ["Visual Studio Code"]="visual-studio-code-bin"
-        ["Visual Studio Code Open Source"]="code"
-        ["Virtualbox"]="virtualbox virtualbox-host-dkms virtualbox-guest-iso"
-        ["Virtmanager"]="virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat dmidecode libguestfs"
-        ["Gnome Boxes"]="gnome-boxes"
+        ["VS Code (OSS)"]="code"
+        ["VirtualBox"]="virtualbox virtualbox-host-dkms virtualbox-guest-iso"
+        ["Virt-Manager"]="virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat dmidecode libguestfs"
+        ["GNOME Boxes"]="gnome-boxes"
         ["CrossOver"]="crossover"
         ["Proton VPN"]="proton-vpn-gtk-app"
         ["Proton Pass"]="proton-pass-bin"
-        ["QBitorrent"]="qbittorrent"
-    )   
+        ["qBittorrent"]="qbittorrent"
+    )
+
+    # --- Audio / musique ----------------------------------------------------
     audio_list=(
         ["Audacious"]="audacious"
-        ["FreeTUBE"]="freetube-bin"
-        ["Strawberry Music Player"]="strawberry"
+        ["FreeTube"]="freetube-bin"
+        ["Strawberry"]="strawberry"
         ["Spotify"]="spotify"
         ["Audacity"]="audacity"
-
     )
+
+    # --- Extensions GNOME ---------------------------------------------------
     gnome_extensions_list=(
         ["Extension Manager"]="extension-manager"
         ["Arc Menu"]="gnome-shell-extension-arc-menu"
         ["Caffeine"]="gnome-shell-extension-caffeine"
         ["Dash to Panel"]="gnome-shell-extension-dash-to-panel"
-        ["Desktop icons NG"]="gnome-shell-extension-desktop-icons-ng"
+        ["Desktop Icons NG"]="gnome-shell-extension-desktop-icons-ng"
         ["Vitals"]="gnome-shell-extension-vitals"
-        ["Weather o'clock"]="gnome-shell-extension-weather-oclock"
-    )   
+        ["Weather O'Clock"]="gnome-shell-extension-weather-oclock"
+    )
+
+    # --- Communication ------------------------------------------------------
     communication_list=(
         ["Discord"]="discord"
         ["Telegram"]="telegram-desktop"
-        ["Element Matrix Client"]="element-desktop element-web"
-        ["NeoChat Matrix client"]="neochat"
+        ["Element (Matrix)"]="element-desktop element-web"
+        ["NeoChat (Matrix)"]="neochat"
         ["Vesktop"]="vesktop-bin"
-        ["Webcord"]="webcord"
-        ["Vencord"]="vencord"
-        ["GQRX SDR"]="gqrx rtl-sdr"
+        ["WebCord"]="webcord"
+        ["VenCord"]="vencord"
+        ["Gqrx SDR"]="gqrx rtl-sdr"
     )
 
+    # --- Outils système -----------------------------------------------------
     system_list=(
-        ["Open RGB"]="openrgb i2c-tools"
-        ["Open Razer"]="openrazer-daemon libnotify polychromatic"
-        ["Arch Update"]="arch-update vim"
-        ["Lact Linux GPU Configuration Tool"]="lact"
+        ["OpenRGB"]="openrgb i2c-tools"
+        ["OpenRazer"]="openrazer-daemon libnotify polychromatic"
+        ["arch-update + Vim"]="arch-update vim"
+        ["Lact (GPU)"]="lact"
         ["Octopi"]="octopi"
         ["Ventoy"]="ventoy-bin"
     )
 
+    # --- IA -----------------------------------------------------------------
     ai_list=(
-        ["Ollama AI Nvidia/cuda"]="ollama ollama-cuda ollama-docs"
-        ["Ollama AI AMD/ATI"]="ollama ollama-rocm ollama-docs"
-        ["Pinokio AI"]="pinokio-bin"
+        ["Ollama (NVIDIA/CUDA)"]="ollama ollama-cuda ollama-docs"
+        ["Ollama (AMD/ROCm)"]="ollama ollama-rocm ollama-docs"
+        ["Pinokio"]="pinokio-bin"
     )
 
+    # --- Graphisme ----------------------------------------------------------
     picture_list=(
-        ["Gimp"]="gimp"
+        ["GIMP"]="gimp"
         ["Krita"]="krita"
         ["Inkscape"]="inkscape"
         ["Blender"]="blender"
-        ["Upscayl image upscaler"]="upscayl-bin"
+        ["Upscayl"]="upscayl-bin"
     )
 
+    # --- Vidéo --------------------------------------------------------------
     video_list=(
-        ["Davinci Resolve"]="davinci-resolve"
-        ["Davinci Resolve Studio"]="davinci-resolve-studio"
+        ["DaVinci Resolve"]="davinci-resolve"
+        ["DaVinci Resolve Studio"]="davinci-resolve-studio"
         ["Kdenlive"]="kdenlive"
         ["OBS Studio"]="obs-studio"
         ["VLC"]="vlc"
         ["MPV"]="mpv"
         ["Video Downloader"]="video-downloader"
-        ["GPU screen recorder for Linux"]="gpu-screenrecorder"
+        ["GPU Screen Recorder"]="gpu-screen-recorder"
         ["Kazam"]="kazam"
     )
 
+    # --- Navigateurs --------------------------------------------------------
     browser_list=(
-        ["Firefox en"]="firefox"
-        ["Firefox fr"]="firefox firefox-i18n-fr"
-        ["Firefox uBlock Origin"]="firefox-ublock-origin"
-        ["Brave"]="brave-bin"
+        ["Firefox (EN)"]="firefox"
+        ["Firefox (FR)"]="firefox firefox-i18n-fr"
+        ["Firefox + uBlock"]="firefox-ublock-origin"
+        ["Brave Stable"]="brave-bin"
         ["Brave Beta"]="brave-beta-bin"
         ["LibreWolf"]="librewolf-bin"
         ["Chromium"]="chromium"
-        ["uBlock Origin Extension"]="ublock-origin"
+        ["uBlock Origin (ext)"]="ublock-origin"
         ["Vivaldi"]="vivaldi vivaldi-ffmpeg-codecs"
-        ["QuteBrowser"]="qutebrowser"
+        ["Qutebrowser"]="qutebrowser"
         ["Google Chrome"]="google-chrome"
         ["Microsoft Edge"]="microsoft-edge-stable-bin"
         ["Zen Browser"]="zen-browser-bin"
-        ["Floorp"="floorp-bin"
+        ["Floorp"]="floorp-bin"
         ["Waterfox"]="waterfox"
-        ["Midori Next Browser"]="midori-bin"
+        ["Midori"]="midori-bin"
     )
 
+    # --- Gaming -------------------------------------------------------------
     gaming_list=(
         ["Steam"]="steam"
         ["Lutris"]="lutris wine-staging"
-        ["Heroic Games Launcher (Epic Games, GOG, etc.)"]="heroic-games-launcher-bin"
-        ["Prism Launcher (Minecraft)"]="prismlauncher-qt5 jdk8-openjdk"
-        ["ProtonUp QT"]="protonup-qt"
-        ["Goverlay"]="goverlay lib32-mangohud"
-        ["Gamemode"]="gamemode lib32-gamemode"
+        ["Heroic Launcher"]="heroic-games-launcher-bin"
+        ["Prism Launcher"]="prismlauncher-qt5 jdk8-openjdk"
+        ["ProtonUp-Qt"]="protonup-qt"
+        ["GOverlay + MangoHud"]="goverlay lib32-mangohud"
+        ["GameMode"]="gamemode lib32-gamemode"
         ["ProtonPlus"]="protonplus"
-        ["Proton GE"]="proton-ge-custon-bin"
-        ["Port Proton launcher de jeux"]="portproton"
+        ["Proton GE"]="proton-ge-custom-bin"
+        ["PortProton"]="portproton"
         ["Bottles"]="bottles"
-        ["Nintendo Switch Emulator Ryujinx"]="ryujinx"
+        ["Ryujinx (Switch)"]="ryujinx"
     )
 }
 
-# -----------------------------------------------------------------------------
-# Display the available software, ask the user to make a choice, 
-# and populate the global 'selected_packages' variable accordingly.
-# -----------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# Affichage et sélection
+# ---------------------------------------------------------------------------
 function select_and_install() {
     declare -n software_list=$1
     local -r software_type=$2
@@ -175,41 +191,37 @@ function select_and_install() {
     done
 }
 
-# -----------------------------------------------------------------------------
-# Main function:
-# 1. Initialize software lists
-# 2. Let user select and install
-# 3. Perform post-install actions (groups, timers, etc.)
-# 4. Manage firewall configuration (firewalld and ufw) if needed
-# -----------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
 function install_software() {
-    # 1. Initialize lists
+    # 1. Init lists
     set_software_list
 
-    # 2. Selection
-    select_and_install browser_list "$(eval_gettext "Browsers")"
-    select_and_install system_list "$(eval_gettext "System Software")"
-    select_and_install desktop_list "$(eval_gettext "Desktop Apps")"
-    select_and_install video_list "$(eval_gettext "Video Software")"
-    select_and_install picture_list "$(eval_gettext "Image Editors")"
-    select_and_install gaming_list "$(eval_gettext "Gaming Software")"
-    select_and_install ai_list "$(eval_gettext "AI Software")"
-    select_and_install communication_list "$(eval_gettext "Communication Software")"
-    select_and_install gnome_extensions_list "$(eval_gettext "Gnome Extensions Software")"
-    select_and_install audio_list "$(eval_gettext "Audio Software")"
-    # Retrieve selected packages to install
+    # 2. Sélection
+    select_and_install browser_list          "$(eval_gettext "Browsers")"
+    select_and_install system_list           "$(eval_gettext "System Software")"
+    select_and_install desktop_list          "$(eval_gettext "Desktop Apps")"
+    select_and_install audio_list            "$(eval_gettext "Audio / Music")"
+    select_and_install gnome_extensions_list "$(eval_gettext "GNOME Extensions")"
+    select_and_install communication_list    "$(eval_gettext "Communication")"
+    select_and_install video_list            "$(eval_gettext "Video Software")"
+    select_and_install picture_list          "$(eval_gettext "Image Editors")"
+    select_and_install ai_list               "$(eval_gettext "AI Tools")"
+    select_and_install gaming_list           "$(eval_gettext "Gaming Software")"
+
+    # 3. Installation
     local -r packages="${selected_packages}"
     selected_packages=""
-
-    # Install via AUR helper previously chosen
     install_lst "${packages}" "aur"
 
-    # 3. Post-install actions
-    # -------------------------------------------------------------------------
+    # 4. Post-install actions
+    # (identiques à ta version ; aucune modif ci-dessous)
+
     # Arch Update
     if [[ "${packages}" =~ "arch-update" ]]; then
         exec_log "systemctl --user enable arch-update.timer" "$(eval_gettext "Enable arch-update.timer")"
-        exec_log "arch-update --tray --enable" "$(eval_gettext "Enable arch-update tray")"
+        exec_log "arch-update --tray --enable"               "$(eval_gettext "Enable arch-update tray")"
     fi
 
     # Open Razer
@@ -220,34 +232,31 @@ function install_software() {
     # VirtualBox
     if [[ "${packages}" =~ "virtualbox" ]]; then
         exec_log "sudo usermod -aG vboxusers $(whoami)" "$(eval_gettext "Add the current user to the vboxusers group")"
-        exec_log "sudo systemctl enable vboxweb.service" "$(eval_gettext "Enable vboxweb")"
+        exec_log "sudo systemctl enable vboxweb.service"    "$(eval_gettext "Enable vboxweb")"
     fi
 
     # Virt-Manager
     if [[ "${packages}" =~ "virt-manager" ]]; then
         exec_log "sudo usermod -aG libvirt $(whoami)" "$(eval_gettext "Add the current user to the libvirt group")"
-        exec_log "sudo usermod -aG kvm $(whoami)" "$(eval_gettext "Add the current user to the kvm group")"
-        exec_log "sudo systemctl enable --now libvirtd" "$(eval_gettext "Enable libvirtd")"
+        exec_log "sudo usermod -aG kvm $(whoami)"     "$(eval_gettext "Add the current user to the kvm group")"
+        exec_log "sudo systemctl enable --now libvirtd"     "$(eval_gettext "Enable libvirtd")"
 
-        # Configure libvirtd socket (permissions)
         sudo sed -i 's/#unix_sock_group = "libvirt"/unix_sock_group = "libvirt"/' /etc/libvirt/libvirtd.conf
         sudo sed -i 's/#unix_sock_rw_perms = "0770"/unix_sock_rw_perms = "0770"/' /etc/libvirt/libvirtd.conf
 
-        # -- Open relevant ports if firewalld is installed
         if command -v firewall-cmd >/dev/null 2>&1; then
-            sudo firewall-cmd --permanent --add-service=libvirt &> /dev/null
-            sudo firewall-cmd --permanent --add-port=5900-5999/tcp &> /dev/null
-            sudo firewall-cmd --permanent --add-port=16509/tcp &> /dev/null
-            sudo firewall-cmd --permanent --add-port=5666/tcp &> /dev/null
-            sudo firewall-cmd --reload &> /dev/null
+            sudo firewall-cmd --permanent --add-service=libvirt &>/dev/null
+            sudo firewall-cmd --permanent --add-port=5900-5999/tcp &>/dev/null
+            sudo firewall-cmd --permanent --add-port=16509/tcp &>/dev/null
+            sudo firewall-cmd --permanent --add-port=5666/tcp &>/dev/null
+            sudo firewall-cmd --reload &>/dev/null
         fi
 
-        # -- Open the same ports if ufw is installed
         if command -v ufw >/dev/null 2>&1; then
             sudo ufw allow 5900:5999/tcp
             sudo ufw allow 16509/tcp
             sudo ufw allow 5666/tcp
-            sudo ufw reload &> /dev/null
+            sudo ufw reload &>/dev/null
         fi
     fi
 
@@ -255,8 +264,9 @@ function install_software() {
     if [[ "${packages}" =~ "gamemode" ]]; then
         exec_log "sudo usermod -aG gamemode $(whoami)" "$(eval_gettext "Add the current user to the gamemode group")"
 
-        # Default configuration for /etc/gamemode.ini
-        local config_content='[general]
+        if [[ ! -f /etc/gamemode.ini ]]; then
+            cat <<'EOF' | sudo tee /etc/gamemode.ini >/dev/null
+[general]
 reaper_freq=5
 desiredgov=performance
 igpu_desiredgov=powersave
@@ -291,69 +301,41 @@ disable_splitlock=1
 [custom]
 ;start=notify-send "GameMode started"
 ;end=notify-send "GameMode ended"
-;script_timeout=10'
-
-        if [ ! -f /etc/gamemode.ini ]; then
-            echo "$config_content" | sudo tee /etc/gamemode.ini > /dev/null
+;script_timeout=10
+EOF
         fi
     fi
 
-    # 4. Firewall configuration for Steam if necessary
-    # -------------------------------------------------------------------------
+    # 5. Ports Steam (firewalld / ufw) — inchangé
     if [[ "${packages}" =~ "steam" ]]; then
-        # -- firewalld
         if command -v firewall-cmd >/dev/null 2>&1; then
-            # To log in and download content from Steam
-            sudo firewall-cmd --permanent --add-port=80/tcp &> /dev/null
-            sudo firewall-cmd --permanent --add-port=443/tcp &> /dev/null
-            sudo firewall-cmd --permanent --add-port=27015-27050/udp &> /dev/null
-            sudo firewall-cmd --permanent --add-port=27015-27050/tcp &> /dev/null
-
-            # Steam Client
-            sudo firewall-cmd --permanent --add-port=27000-27100/udp &> /dev/null
-            sudo firewall-cmd --permanent --add-port=27031-27036/udp &> /dev/null
-            sudo firewall-cmd --permanent --add-port=27036/tcp &> /dev/null
-            sudo firewall-cmd --permanent --add-port=4380/udp &> /dev/null
-
-            # Dedicated or “listen servers”
-            sudo firewall-cmd --permanent --add-port=27015/tcp &> /dev/null
-            sudo firewall-cmd --permanent --add-port=27015/udp &> /dev/null
-
-            # Steamworks P2P Networking and Steam Voice Chat
-            sudo firewall-cmd --permanent --add-port=3478/udp &> /dev/null
-            sudo firewall-cmd --permanent --add-port=4379/udp &> /dev/null
-            sudo firewall-cmd --permanent --add-port=4380/udp &> /dev/null
-            sudo firewall-cmd --permanent --add-port=27014-27030/udp &> /dev/null
-
-            # Apply changes
-            sudo firewall-cmd --reload &> /dev/null
+            sudo firewall-cmd --permanent --add-port={80,443}/tcp &>/dev/null
+            sudo firewall-cmd --permanent --add-port=27015-27050/{tcp,udp} &>/dev/null
+            sudo firewall-cmd --permanent --add-port=27000-27100/udp &>/dev/null
+            sudo firewall-cmd --permanent --add-port=27031-27036/udp &>/dev/null
+            sudo firewall-cmd --permanent --add-port=27036/tcp &>/dev/null
+            sudo firewall-cmd --permanent --add-port=4380/udp &>/dev/null
+            sudo firewall-cmd --permanent --add-port=3478/udp &>/dev/null
+            sudo firewall-cmd --permanent --add-port=4379/udp &>/dev/null
+            sudo firewall-cmd --permanent --add-port=4380/udp &>/dev/null
+            sudo firewall-cmd --permanent --add-port=27014-27030/udp &>/dev/null
+            sudo firewall-cmd --reload &>/dev/null
         fi
 
-        # -- ufw
         if command -v ufw >/dev/null 2>&1; then
-            # To log in and download content from Steam
-            sudo ufw allow 80/tcp
-            sudo ufw allow 443/tcp
-            sudo ufw allow 27015:27050/udp
+            sudo ufw allow 80,443/tcp
             sudo ufw allow 27015:27050/tcp
-
-            # Steam Client
+            sudo ufw allow 27015:27050/udp
             sudo ufw allow 27000:27100/udp
             sudo ufw allow 27031:27036/udp
             sudo ufw allow 27036/tcp
             sudo ufw allow 4380/udp
-
-            # Dedicated or “listen servers”
-            sudo ufw allow 27015/tcp
-            sudo ufw allow 27015/udp
-
-            # Steamworks P2P Networking and Steam Voice Chat
-            sudo ufw allow 3478/udp
-            sudo ufw allow 4379/udp
-            sudo ufw allow 4380/udp
+            sudo ufw allow 3478,4379,4380/udp
             sudo ufw allow 27014:27030/udp
-
-            sudo ufw reload &> /dev/null
+            sudo ufw reload &>/dev/null
         fi
     fi
 }
+
+# Lancer l'installation si ce script est appelé directement
+[[ "${BASH_SOURCE[0]}" == "$0" ]] && install_software "$@"
