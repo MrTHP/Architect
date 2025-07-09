@@ -63,6 +63,161 @@ At the end of the script, you can delete the ~/Architect folder.
 4. **AUR Support** — Install `yay` or `paru`, depending on your preference.
 5. **Optional Components** — Printers, Firewall, Bluetooth, Sound, etc.
 6. **Extra Software** — Browsers, games, apps, media tools, and more.
+7. ## 📦 Software Catalog
+<details>
+<summary><strong>Desktop & Virtualisation</strong></summary>
+
+| Logiciel | Paquet(s) |
+|----------|-----------|
+| LibreOffice (EN) | `libreoffice-fresh` |
+| LibreOffice (FR) | `libreoffice-fresh libreoffice-fresh-fr` |
+| OnlyOffice | `onlyoffice-bin` |
+| GitHub Desktop | `github-desktop-bin` |
+| Visual Studio Code | `visual-studio-code-bin` |
+| VS Code (OSS) | `code` |
+| VirtualBox | `virtualbox virtualbox-host-dkms virtualbox-guest-iso` |
+| Virt-Manager | `virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat dmidecode libguestfs` |
+| GNOME Boxes | `gnome-boxes` |
+| CrossOver | `crossover` |
+| Proton VPN | `proton-vpn-gtk-app` |
+| Proton Pass | `proton-pass-bin` |
+| qBittorrent | `qbittorrent` |
+</details>
+
+<details>
+<summary><strong>Audio / Musique</strong></summary>
+
+| Logiciel | Paquet(s) |
+|----------|-----------|
+| Audacious | `audacious` |
+| FreeTube | `freetube-bin` |
+| Strawberry | `strawberry` |
+| Spotify | `spotify` |
+| Audacity | `audacity` |
+</details>
+
+<details>
+<summary><strong>GNOME Extensions</strong></summary>
+
+| Extension | Paquet |
+|-----------|--------|
+| Extension Manager | `extension-manager` |
+| Arc Menu | `gnome-shell-extension-arc-menu` |
+| Caffeine | `gnome-shell-extension-caffeine` |
+| Dash to Panel | `gnome-shell-extension-dash-to-panel` |
+| Desktop Icons NG | `gnome-shell-extension-desktop-icons-ng` |
+| Vitals | `gnome-shell-extension-vitals` |
+| Weather O'Clock | `gnome-shell-extension-weather-oclock` |
+</details>
+
+<details>
+<summary><strong>Communication</strong></summary>
+
+| Logiciel | Paquet(s) |
+|----------|-----------|
+| Discord | `discord` |
+| Telegram | `telegram-desktop` |
+| Element (Matrix) | `element-desktop element-web` |
+| NeoChat (Matrix) | `neochat` |
+| Vesktop | `vesktop-bin` |
+| WebCord | `webcord` |
+| VenCord | `vencord` |
+| Gqrx SDR | `gqrx rtl-sdr` |
+</details>
+
+<details>
+<summary><strong>Système</strong></summary>
+
+| Outil | Paquet(s) |
+|-------|-----------|
+| OpenRGB | `openrgb i2c-tools` |
+| OpenRazer | `openrazer-daemon libnotify polychromatic` |
+| arch-update + Vim | `arch-update vim` |
+| Lact (GPU) | `lact` |
+| Octopi | `octopi` |
+| Ventoy | `ventoy-bin` |
+</details>
+
+<details>
+<summary><strong>IA / ML</strong></summary>
+
+| Outil | Paquet(s) |
+|-------|-----------|
+| Ollama (NVIDIA/CUDA) | `ollama ollama-cuda ollama-docs` |
+| Ollama (AMD/ROCm) | `ollama ollama-rocm ollama-docs` |
+| Pinokio | `pinokio-bin` |
+</details>
+
+<details>
+<summary><strong>Graphisme</strong></summary>
+
+| Logiciel | Paquet |
+|----------|--------|
+| GIMP | `gimp` |
+| Krita | `krita` |
+| Inkscape | `inkscape` |
+| Blender | `blender` |
+| Upscayl | `upscayl-bin` |
+</details>
+
+<details>
+<summary><strong>Vidéo</strong></summary>
+
+| Logiciel | Paquet |
+|----------|--------|
+| DaVinci Resolve | `davinci-resolve` |
+| DaVinci Resolve Studio | `davinci-resolve-studio` |
+| Kdenlive | `kdenlive` |
+| OBS Studio | `obs-studio` |
+| VLC | `vlc` |
+| MPV | `mpv` |
+| Video Downloader | `video-downloader` |
+| GPU Screen Recorder | `gpu-screenrecorder` |
+| Kazam | `kazam` |
+</details>
+
+<details>
+<summary><strong>Navigateurs</strong></summary>
+
+| Navigateur | Paquet(s) |
+|------------|-----------|
+| Firefox (EN) | `firefox` |
+| Firefox (FR) | `firefox firefox-i18n-fr` |
+| Firefox + uBlock | `firefox-ublock-origin` |
+| Brave Stable | `brave-bin` |
+| Brave Beta | `brave-beta-bin` |
+| LibreWolf | `librewolf-bin` |
+| Chromium | `chromium` |
+| uBlock Origin (ext) | `ublock-origin` |
+| Vivaldi | `vivaldi vivaldi-ffmpeg-codecs` |
+| Qutebrowser | `qutebrowser` |
+| Google Chrome | `google-chrome` |
+| Microsoft Edge | `microsoft-edge-stable-bin` |
+| Zen Browser | `zen-browser-bin` |
+| Floorp | `floorp-bin` |
+| Waterfox | `waterfox` |
+| Midori | `midori-bin` |
+</details>
+
+<details>
+<summary><strong>Gaming</strong></summary>
+
+| Logiciel | Paquet(s) |
+|----------|-----------|
+| Steam | `steam` |
+| Lutris | `lutris wine-staging` |
+| Heroic Launcher | `heroic-games-launcher-bin` |
+| Prism Launcher | `prismlauncher-qt5 jdk8-openjdk` |
+| ProtonUp-Qt | `protonup-qt` |
+| GOverlay + MangoHud | `goverlay lib32-mangohud` |
+| GameMode | `gamemode lib32-gamemode` |
+| ProtonPlus | `protonplus` |
+| Proton GE | `proton-ge-custom-bin` |
+| PortProton | `portproton` |
+| Bottles | `bottles` |
+| Ryujinx (Switch) | `ryujinx` |
+</details>
+
 
 ---
 
@@ -137,6 +292,161 @@ sudo pacman -S --needed git base-devel \
 4. **Support AUR** — Installe `yay` ou `paru`.
 5. **Composants Optionnels** — Imprimantes, Firewall, Bluetooth, Audio, etc.
 6. **Installation de Logiciels** — Navigateur, multimédia, développement, .
+7. ## 📦 Software Catalog
+<details>
+<summary><strong>Desktop & Virtualisation</strong></summary>
+
+| Logiciel | Paquet(s) |
+|----------|-----------|
+| LibreOffice (EN) | `libreoffice-fresh` |
+| LibreOffice (FR) | `libreoffice-fresh libreoffice-fresh-fr` |
+| OnlyOffice | `onlyoffice-bin` |
+| GitHub Desktop | `github-desktop-bin` |
+| Visual Studio Code | `visual-studio-code-bin` |
+| VS Code (OSS) | `code` |
+| VirtualBox | `virtualbox virtualbox-host-dkms virtualbox-guest-iso` |
+| Virt-Manager | `virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat dmidecode libguestfs` |
+| GNOME Boxes | `gnome-boxes` |
+| CrossOver | `crossover` |
+| Proton VPN | `proton-vpn-gtk-app` |
+| Proton Pass | `proton-pass-bin` |
+| qBittorrent | `qbittorrent` |
+</details>
+
+<details>
+<summary><strong>Audio / Musique</strong></summary>
+
+| Logiciel | Paquet(s) |
+|----------|-----------|
+| Audacious | `audacious` |
+| FreeTube | `freetube-bin` |
+| Strawberry | `strawberry` |
+| Spotify | `spotify` |
+| Audacity | `audacity` |
+</details>
+
+<details>
+<summary><strong>GNOME Extensions</strong></summary>
+
+| Extension | Paquet |
+|-----------|--------|
+| Extension Manager | `extension-manager` |
+| Arc Menu | `gnome-shell-extension-arc-menu` |
+| Caffeine | `gnome-shell-extension-caffeine` |
+| Dash to Panel | `gnome-shell-extension-dash-to-panel` |
+| Desktop Icons NG | `gnome-shell-extension-desktop-icons-ng` |
+| Vitals | `gnome-shell-extension-vitals` |
+| Weather O'Clock | `gnome-shell-extension-weather-oclock` |
+</details>
+
+<details>
+<summary><strong>Communication</strong></summary>
+
+| Logiciel | Paquet(s) |
+|----------|-----------|
+| Discord | `discord` |
+| Telegram | `telegram-desktop` |
+| Element (Matrix) | `element-desktop element-web` |
+| NeoChat (Matrix) | `neochat` |
+| Vesktop | `vesktop-bin` |
+| WebCord | `webcord` |
+| VenCord | `vencord` |
+| Gqrx SDR | `gqrx rtl-sdr` |
+</details>
+
+<details>
+<summary><strong>Système</strong></summary>
+
+| Outil | Paquet(s) |
+|-------|-----------|
+| OpenRGB | `openrgb i2c-tools` |
+| OpenRazer | `openrazer-daemon libnotify polychromatic` |
+| arch-update + Vim | `arch-update vim` |
+| Lact (GPU) | `lact` |
+| Octopi | `octopi` |
+| Ventoy | `ventoy-bin` |
+</details>
+
+<details>
+<summary><strong>IA / ML</strong></summary>
+
+| Outil | Paquet(s) |
+|-------|-----------|
+| Ollama (NVIDIA/CUDA) | `ollama ollama-cuda ollama-docs` |
+| Ollama (AMD/ROCm) | `ollama ollama-rocm ollama-docs` |
+| Pinokio | `pinokio-bin` |
+</details>
+
+<details>
+<summary><strong>Graphisme</strong></summary>
+
+| Logiciel | Paquet |
+|----------|--------|
+| GIMP | `gimp` |
+| Krita | `krita` |
+| Inkscape | `inkscape` |
+| Blender | `blender` |
+| Upscayl | `upscayl-bin` |
+</details>
+
+<details>
+<summary><strong>Vidéo</strong></summary>
+
+| Logiciel | Paquet |
+|----------|--------|
+| DaVinci Resolve | `davinci-resolve` |
+| DaVinci Resolve Studio | `davinci-resolve-studio` |
+| Kdenlive | `kdenlive` |
+| OBS Studio | `obs-studio` |
+| VLC | `vlc` |
+| MPV | `mpv` |
+| Video Downloader | `video-downloader` |
+| GPU Screen Recorder | `gpu-screenrecorder` |
+| Kazam | `kazam` |
+</details>
+
+<details>
+<summary><strong>Navigateurs</strong></summary>
+
+| Navigateur | Paquet(s) |
+|------------|-----------|
+| Firefox (EN) | `firefox` |
+| Firefox (FR) | `firefox firefox-i18n-fr` |
+| Firefox + uBlock | `firefox-ublock-origin` |
+| Brave Stable | `brave-bin` |
+| Brave Beta | `brave-beta-bin` |
+| LibreWolf | `librewolf-bin` |
+| Chromium | `chromium` |
+| uBlock Origin (ext) | `ublock-origin` |
+| Vivaldi | `vivaldi vivaldi-ffmpeg-codecs` |
+| Qutebrowser | `qutebrowser` |
+| Google Chrome | `google-chrome` |
+| Microsoft Edge | `microsoft-edge-stable-bin` |
+| Zen Browser | `zen-browser-bin` |
+| Floorp | `floorp-bin` |
+| Waterfox | `waterfox` |
+| Midori | `midori-bin` |
+</details>
+
+<details>
+<summary><strong>Gaming</strong></summary>
+
+| Logiciel | Paquet(s) |
+|----------|-----------|
+| Steam | `steam` |
+| Lutris | `lutris wine-staging` |
+| Heroic Launcher | `heroic-games-launcher-bin` |
+| Prism Launcher | `prismlauncher-qt5 jdk8-openjdk` |
+| ProtonUp-Qt | `protonup-qt` |
+| GOverlay + MangoHud | `goverlay lib32-mangohud` |
+| GameMode | `gamemode lib32-gamemode` |
+| ProtonPlus | `protonplus` |
+| Proton GE | `proton-ge-custom-bin` |
+| PortProton | `portproton` |
+| Bottles | `bottles` |
+| Ryujinx (Switch) | `ryujinx` |
+</details>
+
 
 ---
 
